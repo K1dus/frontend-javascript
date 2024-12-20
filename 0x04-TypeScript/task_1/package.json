@@ -1,0 +1,16 @@
+{
+  "name": "task_1",
+  "version": "1.0.0",
+  "description": "Task 1 for ALX TypeScript project",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.4.3"
+  }
+}
