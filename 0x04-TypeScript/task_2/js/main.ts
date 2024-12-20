@@ -12,8 +12,6 @@ interface TeacherInterface {
   workTeacherTasks(): string;
 }
 
-// Step 2: Implement the Classes
-
 // Director class implementing DirectorInterface
 class Director implements DirectorInterface {
   workFromHome(): string {
@@ -44,8 +42,7 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// Step 3: Create the createEmployee function
-
+// Function to create an Employee
 function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === "number" && salary < 500) {
     return new Teacher();
@@ -53,7 +50,20 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
+// Type predicate to check if an employee is a Director
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// Function to execute work based on employee type
+function executeWork(employee: Director | Teacher): void {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log(employee.workTeacherTasks());
+  }
+}
+
 // Example usage
-console.log(createEmployee(200)); // Teacher
-console.log(createEmployee(1000)); // Director
-console.log(createEmployee("$500")); // Director
+executeWork(createEmployee(200)); // Output: Getting to work
+executeWork(createEmployee(1000)); // Output: Getting to director tasks
