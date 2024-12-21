@@ -78,5 +78,5 @@ The project requires the following tools:
 1. Clone the repository:
 
    `bash
-   git clone https://www.github.com/K1dus/alx-frontend-javascript.git
+   git clone https://www.github.com/K1dus/frontend-javascript.git
    cd 0x04-TypeScript
